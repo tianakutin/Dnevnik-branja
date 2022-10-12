@@ -14,6 +14,7 @@ except FileNotFoundError:
 
 
 def tekstovni_vmesnik():
+    
     print(pozdravno_sporocilo())
     while True:
         prikazi_osnovni_zaslon()
@@ -30,6 +31,7 @@ def prikazi_osnovni_zaslon():
             prikazi_osnovni_zaslon()
         elif ukaz == ZAKLJUCI:
             stanje.shrani_v_datoteko(IME_DATOTEKE)
+            izpisi_stanje()
             print('Nasvidenje!')
             break   
 
