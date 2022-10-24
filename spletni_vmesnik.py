@@ -17,18 +17,18 @@ def osnovni_zaslon():
     return bottle.template('osnovni_zaslon.tpl', knjige = stanje.knjige)
 
 @bottle.post('/dodaj_knjigo/')
-def dodaj_opravilo():
+def dodajanje_knjige():
     naslov = bottle.request.forms['naslov']
     avtor = bottle.request.forms['avtor']
     ocena = bottle.request.forms['ocena']
     mnenje = bottle.request.forms['mnenje']
     datum = bottle.request.forms['datum']
-    if naslov and avtor:
+    if ocena:
         knjiga = Knjiga(naslov, avtor, ocena, mnenje, datum)
         stanje.dodaj_knjigo(knjiga)
         stanje.shrani_v_datoteko(IME_DATOTEKE)
         bottle.redirect('/')
     else:
-        return 'NApisati morate naslov in avtorja.'
+        return 'Napisati morate naslov in avtorja.'
 
 bottle.run(reloader=True, debug=True)
