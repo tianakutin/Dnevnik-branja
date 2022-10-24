@@ -37,13 +37,13 @@ class Stanje:
     def shrani_v_datoteko(self, ime_datoteke):
         with open(ime_datoteke, 'w') as dat:
             slovar = self.v_slovar()
-            json.dump(slovar, dat)
+            json.dump(slovar, dat, indent=4, ensure_ascii=False)
     
     def v_slovar(self):
         slovar = {}
         for i in range(len(self.knjige)):
             knjiga = self.knjige[i]
-            slovar["knjiga{i}"] = knjiga.v_slovar()
+            slovar[f"knjiga{i}"] = knjiga.v_slovar()
         return slovar
     
     @staticmethod
@@ -56,7 +56,7 @@ class Stanje:
     def iz_slovarja(slovar):
         stanje = Stanje(
             [
-                Knjiga.iz_slovarja(knjiga)
+                Knjiga.iz_slovarja(slovar[knjiga])
                 for knjiga in slovar
             ]
         )

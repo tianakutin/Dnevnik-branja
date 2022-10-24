@@ -58,9 +58,7 @@ def izpisi_stanje():
         Datum: {knjiga.datum}
         """)
     if not stanje.knjige:
-        print(
-            "Trenutno nimate še nobene knjige, zato morate eno najprej dodati."
-        )
+        print("Trenutno nimate še nobene knjige, zato morate eno najprej dodati.")
 
 
 tekstovni_vmesnik()
