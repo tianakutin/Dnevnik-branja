@@ -35,7 +35,7 @@ class Stanje:
         self.knjige.append(knjiga)
 
     def shrani_v_datoteko(self, ime_datoteke):
-        with open(ime_datoteke, 'w') as dat:
+        with open(ime_datoteke, 'w', encoding='utf-8') as dat:
             slovar = self.v_slovar()
             json.dump(slovar, dat, indent=4, ensure_ascii=False)
     
@@ -48,7 +48,7 @@ class Stanje:
     
     @staticmethod
     def preberi_iz_datoteke(ime_datoteke):
-        with open(ime_datoteke) as dat:
+        with open(ime_datoteke, encoding="utf-8") as dat:
             slovar = json.load(dat)
             return Stanje.iz_slovarja(slovar)
 

@@ -14,16 +14,19 @@ except FileNotFoundError:
 
 @bottle.get('/')
 def osnovni_zaslon():
-    return bottle.template('osnovni_zaslon.tpl', knjige = stanje.knjige)
+    return bottle.template('osnovni_zaslon.html', knjige = stanje.knjige)
 
 @bottle.post('/dodaj_knjigo/')
 def dodajanje_knjige():
-    naslov = bottle.request.forms['naslov']
-    avtor = bottle.request.forms['avtor']
-    ocena = bottle.request.forms['ocena']
-    mnenje = bottle.request.forms['mnenje']
+    naslov = bottle.request.forms.getunicode('naslov')
+    avtor = bottle.request.forms.getunicode('avtor')
+    try:
+        ocena = bottle.request.forms['ocena']
+    except:
+        ocena = ""
+    mnenje = bottle.request.forms.getunicode('mnenje')
     datum = bottle.request.forms['datum']
-    if ocena:
+    if naslov and avtor:
         knjiga = Knjiga(naslov, avtor, ocena, mnenje, datum)
         stanje.dodaj_knjigo(knjiga)
         stanje.shrani_v_datoteko(IME_DATOTEKE)
