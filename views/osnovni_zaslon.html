@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>Knjige</h1>
+      <h1>KNJIGE</h1>
       <form action="/dodaj_knjigo/" method="POST">
         <div class="mb-2">
         <label for="naslov">Naslov:</label><br>
@@ -37,7 +37,10 @@
             Ocena: {{knjiga.ocena}}<br>
             Mnenje: {{knjiga.mnenje}}<br>
             Datum: {{knjiga.datum}}</p>
-      <input type="button" onclick="" value="Izbriši">
+            {{knjiga}}
+          <form action="/izbrisi_knjigo/" method="post">
+            <button name="knjiga" type="submit" value="{{knjiga.naslov}},{{knjiga.avtor}}">Izbriši</button>
+          </form>
       <hr>
       %end
     </div>
