@@ -1,43 +1,15 @@
 {
     "knjiga0": {
-        "naslov": "hckasij",
-        "avtor": "s",
-        "ocena": "",
-        "mnenje": "",
-        "datum": ""
+        "naslov": "kolo",
+        "avtor": "Larisa",
+        "ocena": "5",
+        "mnenje": "super",
+        "datum": "2022-10-12"
     },
     "knjiga1": {
-        "naslov": "as",
-        "avtor": "s",
+        "naslov": "Noč",
+        "avtor": "Ivančič",
         "ocena": "4",
-        "mnenje": "",
-        "datum": "2022-10-28"
-    },
-    "knjiga2": {
-        "naslov": "hckasij",
-        "avtor": "hsdh",
-        "ocena": "3",
-        "mnenje": "",
-        "datum": ""
-    },
-    "knjiga3": {
-        "naslov": "",
-        "avtor": "",
-        "ocena": "3",
-        "mnenje": "",
-        "datum": ""
-    },
-    "knjiga4": {
-        "naslov": "as",
-        "avtor": "",
-        "ocena": "3",
-        "mnenje": "",
-        "datum": ""
-    },
-    "knjiga5": {
-        "naslov": "",
-        "avtor": "",
-        "ocena": "2",
         "mnenje": "",
         "datum": ""
     }
