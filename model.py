@@ -7,10 +7,7 @@ class Knjiga:
         self.ocena = ocena
         self.mnenje = mnenje
         self.datum = datum
-    @staticmethod
-    def getNaslov():
-        return self.naslov
-
+    
     def v_slovar(self):
         return {
             "naslov": self.naslov,
@@ -38,18 +35,10 @@ class Stanje:
         self.knjige.append(knjiga)
 
     def izbrisi_knjigo(self, knjiga):
-        imeKnjige,avt=knjiga.split(",")
-        for i in self.knjige:
-            print(i) 
+        ime_knjige,avtor_knjige=knjiga.split(",")
         for ix,k in enumerate(self.knjige):
-            if k.naslov==imeKnjige and k.avtor==avt:
+            if k.naslov==ime_knjige and k.avtor==avtor_knjige:
                 del self.knjige[ix]
-        print()  
-        print()
-        print()  
-        print()   
-        for i in self.knjige:
-            print(i)     
 
     def shrani_v_datoteko(self, ime_datoteke):
         with open(ime_datoteke, 'w', encoding='utf-8') as dat:
@@ -77,5 +66,5 @@ class Stanje:
                 for knjiga in slovar
             ]
         )
-        print(stanje.knjige)
+        
         return stanje
