@@ -1,4 +1,4 @@
-import bottle,time
+import bottle
 from model import Knjiga, Stanje
 
 DODAJ_KNJIGO = 'dodaj'
@@ -36,7 +36,7 @@ def dodajanje_knjige():
         stanje.shrani_v_datoteko(IME_DATOTEKE)
         bottle.redirect('/')
     else:
-        return 'Napisati morate naslov in avtorja.'
+        bottle.redirect('/dodaj_knjigo/')
 
 @bottle.post('/izbrisi_knjigo/')
 def brisanje_knjige():
@@ -45,5 +45,9 @@ def brisanje_knjige():
 
     stanje.shrani_v_datoteko(IME_DATOTEKE)
     bottle.redirect('/')
+
+@bottle.get('/dodaj_knjigo/')
+def sporocilo():
+    return bottle.template('sporocilo.html')
 
 bottle.run(reloader=True, debug=True)
