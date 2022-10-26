@@ -1,9 +1,31 @@
 % rebase('base.html')
 <div class="container">
   <div class="row">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">DNEVNIK PREBRANIH KNJIG</span>
+      </div>
+    </nav>
+    <hr>
+    <div class="col-8">
+
+      % if knjige != []:
+      %   for knjiga in knjige:
+      
+        <h2 class="fs-1 form-control p-3 bg-info bg-opacity-20 border border-info text-decoration-underline">{{knjiga.naslov}}</h2>
+          <p class="barva" ><b>Avtor: {{knjiga.avtor}}</b><br><br>
+            Ocena: {{knjiga.ocena}}<br>
+            Mnenje: {{knjiga.mnenje}}<br><br>
+            Datum: {{knjiga.datum}}</p>
+          <form action="/izbrisi_knjigo/" method="post">
+            <button name="knjiga" type="submit" class="btn btn-light" value="{{knjiga.naslov}},{{knjiga.avtor}}">Izbriši</button>
+          </form>
+      <hr>
+      %end
+    </div>
     <div class="col">
-      <h1>KNJIGE</h1>
-      <form action="/dodaj_knjigo/" method="POST">
+      <form class="barva" action="/dodaj_knjigo/" method="POST">
+        <b class="fs-3">Dodajanje knjige:</b><br><br>
         <div class="mb-2">
         <label for="naslov">Naslov:</label><br>
         <input type="text" id="naslov" name="naslov"><br>
@@ -26,24 +48,10 @@
         <label for="datum">Datum:</label>
         <input type="date" id="datum" name="datum">
         </div>
-        <input type="submit" value="Dodaj">
+        <input type="submit" class="btn btn-light" value="Dodaj">
       </form>
-
-      % if knjige != []:
-      %   for knjiga in knjige:
-      <hr>
-        <h2>Naslov knjige: {{knjiga.naslov}}</h2>
-          <p>Avtor: {{knjiga.avtor}}<br>
-            Ocena: {{knjiga.ocena}}<br>
-            Mnenje: {{knjiga.mnenje}}<br>
-            Datum: {{knjiga.datum}}</p>
-            {{knjiga}}
-          <form action="/izbrisi_knjigo/" method="post">
-            <button name="knjiga" type="submit" value="{{knjiga.naslov}},{{knjiga.avtor}}">Izbriši</button>
-          </form>
-      <hr>
-      %end
     </div>
+    
   </div>
 </div> 
 
