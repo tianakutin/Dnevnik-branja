@@ -1,16 +1,1 @@
-{
-    "knjiga0": {
-        "naslov": "kolo",
-        "avtor": "Larisa",
-        "ocena": "5",
-        "mnenje": "super",
-        "datum": "2022-10-12"
-    },
-    "knjiga1": {
-        "naslov": "Noč",
-        "avtor": "Ivančič",
-        "ocena": "4",
-        "mnenje": "",
-        "datum": ""
-    }
-}
+{}

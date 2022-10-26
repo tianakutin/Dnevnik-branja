@@ -7,37 +7,22 @@
       </div>
     </nav>
     <hr>
-    <div class="col-8">
 
-      % if knjige != []:
-      %   for knjiga in knjige:
-      
-        <h2 class="fs-1 form-control p-3 bg-info bg-opacity-20 border border-info text-decoration-underline">{{knjiga.naslov}}</h2>
-          <p class="barva" ><b>Avtor: {{knjiga.avtor}}</b><br><br>
-            Ocena: {{knjiga.ocena}}<br>
-            Mnenje: {{knjiga.mnenje}}<br><br>
-            Datum: {{knjiga.datum}}</p>
-          <form action="/izbrisi_knjigo/" method="post">
-            <button name="knjiga" type="submit" class="btn btn-light" value="{{knjiga.naslov}},{{knjiga.avtor}}">Izbriši</button>
-          </form>
-      <hr>
-      %end
-    </div>
     <div class="col">
       <form class="barva" action="/dodaj_knjigo/" method="POST">
         <b class="fs-3">Dodajanje knjige:</b><br><br>
         <div class="mb-2">
         <label for="naslov">Naslov:</label><br>
-        <input type="text" id="naslov" name="naslov"><br>
+        <input type="text" id="naslov" name="naslov" required><br>
         </div>
         <div class="mb-2">
         <label for="avtor">Avtor:</label><br>
-        <input type="text" id="avtor" name="avtor"><br><br>
+        <input type="text" id="avtor" name="avtor" required><br><br>
         </div>
         Ocena:
         %for i in range(1,6):
+        <label for="ocena">{{i}}</label>
         <input type="radio" id="ocena" name="ocena" value="{{i}}">
-        <label for="ocena">{{i}}</label>
         %end
         <br><br>
         <div class="mb-2">
@@ -50,8 +35,28 @@
         </div>
         <input type="submit" class="btn btn-light" value="Dodaj">
       </form>
+      %if napaka:
+        <br><br>
+        <p class="alert alert-danger">{{napaka}}</p>
+      %end
     </div>
-    
+
+    <div class="col-8">
+      % if knjige != []:
+      %   for knjiga in knjige:
+            <h2 class="fs-1 form-control p-3 bg-info bg-opacity-20 border border-info text-decoration-underline">{{knjiga.naslov}}</h2>
+            <p class="barva" >
+              <b>Avtor: {{knjiga.avtor}}</b><br><br>
+              Ocena: {{knjiga.ocena}}<br>
+              Mnenje: {{knjiga.mnenje}}<br><br>
+              Datum: {{knjiga.datum}}
+            </p>
+            <form action="/izbrisi_knjigo/" method="post">
+              <button name="knjiga" type="submit" class="btn btn-light" value="{{knjiga.naslov}},{{knjiga.avtor}}">Izbriši</button>
+            </form>
+            <hr>
+      %end
+    </div>
   </div>
 </div> 
 

@@ -14,7 +14,7 @@ class Knjiga:
             "avtor": self.avtor,
             "ocena": self.ocena,
             "mnenje": self.mnenje,
-            "datum": self.datum,
+            "datum": self.datum
         }
     
     @staticmethod
@@ -24,7 +24,7 @@ class Knjiga:
             slovar["avtor"],
             slovar["ocena"],
             slovar["mnenje"],
-            slovar["datum"],
+            slovar["datum"]
         )
 
 class Stanje:
